@@ -1,0 +1,1 @@
+# Shared classes project for .NET Core based projects under the TameMyCerts brand
