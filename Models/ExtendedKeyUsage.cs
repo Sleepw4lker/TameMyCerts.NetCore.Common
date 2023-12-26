@@ -39,7 +39,6 @@ public class ExtendedKeyUsage
         }
         catch
         {
-            // TODO
             FriendlyName = "unknown";
         }
         finally

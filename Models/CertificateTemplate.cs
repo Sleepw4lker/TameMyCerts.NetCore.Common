@@ -65,7 +65,7 @@ public class CertificateTemplate
 
         foreach (var genericAce in rawSecurityDescriptor.DiscretionaryAcl)
         {
-            if (!(genericAce is ObjectAce objectAce))
+            if (genericAce is not ObjectAce objectAce)
             {
                 continue;
             }
@@ -170,7 +170,7 @@ public class CertificateTemplate
         var templateBaseKey =
             machineBaseKey.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography\\CertificateTemplateCache");
 
-        if (templateBaseKey?.OpenSubKey(templateName) is RegistryKey templateSubKey)
+        if (templateBaseKey?.OpenSubKey(templateName) is { } templateSubKey)
         {
             return new CertificateTemplate(templateName, templateSubKey);
         }
@@ -195,7 +195,7 @@ public class CertificateTemplate
 
         foreach (var templateName in templateBaseKey.GetSubKeyNames())
         {
-            if (!(templateBaseKey?.OpenSubKey(templateName) is RegistryKey templateSubKey))
+            if (templateBaseKey?.OpenSubKey(templateName) is not { } templateSubKey)
             {
                 continue;
             }
